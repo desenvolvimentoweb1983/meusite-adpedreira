@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
-// Páginas (todos em minúsculas)
+// Páginas (todos arquivos em minúsculo)
 import Home from "./pages/home.jsx";
 import Sobre from "./pages/sobre.jsx";
 import Palavra from "./pages/palavra.jsx";
@@ -19,19 +19,25 @@ import Pequeninos from "./pages/pequeninos.jsx";
 import "./styles/global.css";
 
 function App() {
+  const routes = [
+    { path: "/", element: <Home /> },
+    { path: "/sobre", element: <Sobre /> },
+    { path: "/palavra", element: <Palavra /> },
+    { path: "/louvor", element: <Louvor /> },
+    { path: "/jovens", element: <Jovens /> },
+    { path: "/pequeninos", element: <Pequeninos /> },
+    { path: "/oremos", element: <Oremos /> },
+    { path: "/contato", element: <Contato /> },
+  ];
+
   return (
     <Router>
       <Header />
       <main>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/sobre" element={<Sobre />} />
-          <Route path="/palavra" element={<Palavra />} />
-          <Route path="/louvor" element={<Louvor />} />
-          <Route path="/jovens" element={<Jovens />} />
-          <Route path="/pequeninos" element={<Pequeninos />} />
-          <Route path="/oremos" element={<Oremos />} />
-          <Route path="/contato" element={<Contato />} />
+          {routes.map((route, index) => (
+            <Route key={index} path={route.path} element={route.element} />
+          ))}
         </Routes>
       </main>
       <Footer />
