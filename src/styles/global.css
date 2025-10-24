@@ -568,3 +568,22 @@ p {
     padding: 8px 12px;
   }
 }
+.oremos-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 20px 40px 20px; /* mantém imagem próxima do topo */
+  background-color: #f0f8ff; /* fundo azul clarinho */
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.imagem-oremos {
+  width: 70%;           /* diminui ainda mais a largura */
+  max-width: 405px;     /* limite máximo menor */
+  height: auto;         /* mantém proporção */
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  margin-bottom: 30px;
+  object-fit: cover;
+}

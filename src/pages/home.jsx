@@ -6,6 +6,7 @@ import img1 from "../assets/assembleiaDeDeusIpiranga.jpg";
 import img2 from "../assets/irmasPedreira1.jpg";
 import img3 from "../assets/jovens2.jpg";
 import img4 from "../assets/irmasPedreira2.jpg";
+import oracaoImg from "../assets/oracao.jpg"; // nova imagem
 
 export default function Home() {
   const cards = [
@@ -20,7 +21,8 @@ export default function Home() {
 
   const audioRef = useRef(null);
 
-  const slides = [img1, img2, img3, img4]; // Atualizado com novas imagens
+  // Ordem correta: assembleiaDeDeusIpiranga.jpg primeiro, depois oracao.jpg
+  const slides = [img1, oracaoImg, img2, img3, img4];
 
   // Autoplay dos cards
   useEffect(() => {
@@ -66,24 +68,23 @@ export default function Home() {
   return (
     <div className="home-container">
 
-      {/* ===================== Hero Slideshow ===================== */}
-      <section className="hero">
-        <div className="hero-slideshow">
-          {slides.map((slide, index) => (
-            <img
-              key={index}
-              src={slide}
-              alt={`Slide ${index + 1}`}
-              className={index === currentSlideIndex ? "active" : ""}
-            />
-          ))}
-          <button className="slideshow-btn prev" onClick={prevSlide}>◀</button>
-          <button className="slideshow-btn next" onClick={nextSlide}>▶</button>
-        </div>
-        <h1 className="hero-title">
-          Bem-vindo(a) à Igreja Assembleia de Deus Ipiranga – Setor Morungaba, SP – Congregação: JD Triunfo, Pedreira, SP
-        </h1>
-      </section>
+{/* ===================== Hero Slideshow ===================== */}
+<section className="hero">
+  <div className="hero-slideshow">
+    {slides.map((slide, index) => (
+      <img
+        key={index}
+        src={slide}
+        alt={`Slide ${index + 1}`}
+        className={index === currentSlideIndex ? "active" : ""}
+      />
+    ))}
+    {/* Navegação removida */}
+  </div>
+  <h1 className="hero-title">
+    Bem-vindo(a) à Igreja Assembleia de Deus Ipiranga – Setor Morungaba, SP – Congregação: JD Triunfo, Pedreira, SP
+  </h1>
+</section>
 
       {/* ===================== Horários Slider ===================== */}
       <section className="section-horarios">
